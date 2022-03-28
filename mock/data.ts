@@ -27,7 +27,6 @@ type Teacher = {
         last: string
         middle: string
     }
-    gender: Gender
     subjects: Subject['id'][]
 }
 
@@ -49,9 +48,6 @@ type Appointment = {
     subject: Subject['id']
     createdAt: Date
 }
-
-type Gender = 'male' | 'female' | 0 | 1
-// type Gender = 'male' | 'female'
 
 const subjects: Subject[] = [
     {
@@ -80,48 +76,32 @@ const subjects: Subject[] = [
  * Data generators
  */
 
-/**
- * @description Случайный пол для предотвращения непоследовательной генерации ФИО
- */
-function getRandomGender(): Gender {
-    return faker.random.arrayElement([0, 1])
-}
-
-function generateUniqueArraValues(length: number, generator: () => any): any[] {
-    return [...new Set(Array.from({ length: length }, () => generator()))]
-}
-
-function generateMe(): Student {
-    const gender = getRandomGender()
-
-    return {
-        id: nanoid(),
-        name: {
-            first: faker.name.firstName(gender),
-            last: faker.name.lastName(gender),
-            middle: faker.name.middleName(gender),
-        },
-        email: faker.internet.email(),
-        phone: faker.phone.phoneNumber('+7 (###) ###-##-##'),
-    }
-}
-
-function generateTeacher(): Teacher {
-    const gender = 'male'
-
-    return {
-        id: nanoid(),
-        name: {
-            first: faker.name.firstName(gender),
-            last: faker.name.lastName(gender),
-            middle: faker.name.middleName(gender),
-        },
-        gender: gender,
-        subjects: generateUniqueArraValues(
-            subjects.length,
-            () => subjects[faker.datatype.number(subjects.length - 1)].id
+function generateUniqueArraValues(
+    length: number,
+    generator?: () => any
+): any[] {
+    return [
+        // Избавляемся от дубликатов
+        ...new Set(
+            Array.from({ length: length }, () =>
+                // Если генератор не передан, то возврацаем 'undefined'
+                generator ? generator() : undefined
+            )
         ),
-    }
+    ]
+}
+
+function generateUniqSubjectsIds({
+    min,
+    max,
+}: {
+    min: number
+    max: number
+}): Subject['id'][] {
+    return generateUniqueArraValues(
+        faker.datatype.number({ min, max }),
+        () => subjects[faker.datatype.number(subjects.length - 1)].id
+    )
 }
 
 function generateAppointment(): Appointment {
@@ -134,16 +114,122 @@ function generateAppointment(): Appointment {
     }
 }
 
-function generateTeachersList(): Teacher[] {
-    return Array.from({ length: 10 }, () => generateTeacher())
-}
-
 function generateAppointmentsList(): Appointment[] {
     return Array.from({ length: 3 }, () => generateAppointment())
 }
 
-const me = generateMe()
-const teachers = generateTeachersList()
+const me = {
+    id: nanoid(),
+    name: {
+        first: 'Иван',
+        middle: 'Иванович',
+        last: 'Иванов',
+    },
+    email: faker.internet.email(),
+    phone: faker.phone.phoneNumber('+7 (###) ###-##-##'),
+}
+
+const teachers = [
+    {
+        id: nanoid(),
+        name: {
+            first: 'Кира',
+            middle: 'Давидовна',
+            last: 'Щепетинникова',
+        },
+        subjects: generateUniqSubjectsIds({ min: 1, max: 2 }),
+    },
+    {
+        id: nanoid(),
+        name: {
+            first: 'Всеслава',
+            middle: 'Ипполитовна',
+            last: 'Должикова',
+        },
+        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+    },
+    {
+        id: nanoid(),
+        name: {
+            first: 'Иннокентий',
+            middle: 'Ипатиевич',
+            last: 'Яров',
+        },
+        subjects: generateUniqSubjectsIds({ min: 1, max: 1 }),
+    },
+    {
+        id: nanoid(),
+        name: {
+            first: 'Эльвира',
+            middle: 'Владленовна',
+            last: 'Янкова',
+        },
+        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+    },
+    {
+        id: nanoid(),
+        name: {
+            first: 'Филимон',
+            middle: 'Дмитриевич',
+            last: 'Званцев',
+        },
+        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+    },
+    {
+        id: nanoid(),
+        name: {
+            first: 'Эмиль',
+            middle: 'Онисимович',
+            last: 'Храмов',
+        },
+        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+    },
+    {
+        id: nanoid(),
+        name: {
+            first: 'Вячеслав',
+            middle: 'Артемиевич',
+            last: 'Воробьёв',
+        },
+        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+    },
+    {
+        id: nanoid(),
+        name: {
+            first: 'Инесса',
+            middle: 'Брониславовна',
+            last: 'Комягина',
+        },
+        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+    },
+    {
+        id: nanoid(),
+        name: {
+            first: 'Зинаида',
+            middle: 'Леонидовна',
+            last: 'Овсова',
+        },
+        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+    },
+    {
+        id: nanoid(),
+        name: {
+            first: 'Пелагея',
+            middle: 'Романовна',
+            last: 'Юганцева',
+        },
+        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+    },
+    {
+        id: nanoid(),
+        name: {
+            first: 'Людмила',
+            middle: 'Елизаровна',
+            last: 'Шилова',
+        },
+        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+    },
+]
 const appointments = generateAppointmentsList()
 
 export { teachers, me, appointments }
