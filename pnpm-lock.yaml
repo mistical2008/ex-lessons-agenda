@@ -42,6 +42,7 @@ specifiers:
   jest: ^27.5.1
   jsdom: ^19.0.0
   less: ^4.1.2
+  nanoid: ^3.3.2
   prettier: ^2.6.1
   react: ^17.0.2
   react-dom: ^17.0.2
@@ -61,6 +62,7 @@ dependencies:
   axios: 0.26.1
   fp-ts: 2.11.9
   framer-motion: 6.2.8_react-dom@17.0.2+react@17.0.2
+  nanoid: 3.3.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-query: 3.34.19_react-dom@17.0.2+react@17.0.2
@@ -10287,7 +10289,6 @@ packages:
     resolution: {integrity: sha512-CuHBogktKwpm5g2sRgv83jEy2ijFzBwMoYA60orPDR7ynsLijJDqgsi4RDGj3OJpy3Ieb+LYwiRmIOGyytgITA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
-    dev: true
 
   /nanomatch/1.2.13:
     resolution: {integrity: sha512-fpoe2T0RbHwBTBUOftAfBPaDEi06ufaUai0mE6Yn1kacc3SnTErfb/h+X94VXzI64rKFHYImXSvdwGGCmwOqCA==}

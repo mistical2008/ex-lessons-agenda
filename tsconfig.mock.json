@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "module": "commonjs",
+        "moduleResolution": "Node",
+        "esModuleInterop": true
+    },
+    "include": ["mock/*"]
+}
