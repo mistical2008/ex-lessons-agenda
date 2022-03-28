@@ -5,7 +5,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import vitePluginImp from 'vite-plugin-imp'
-import mockServer from 'vite-plugin-mock-server'
 /* @ts-ignore */
 import path from 'path'
 
@@ -24,19 +23,15 @@ export default defineConfig({
         environment: 'jsdom',
         setupFiles: 'src/shared/setupTests.ts',
     },
-    plugins: [
-        react(),
-        tsconfigPaths(),
-        vitePluginImp(),
-        mockServer({ logLevel: 'info' }),
-    ],
+    plugins: [react(), tsconfigPaths(), vitePluginImp()],
     resolve: {
         alias: [
             {
                 find: /^~/,
                 replacement: path.resolve(process.cwd(), 'node_modules'),
             },
-            { find: '@', replacement: path.resolve(process.cwd()) },
+            { find: /^@\//, replacement: path.resolve(process.cwd()) },
+            { find: /^src/, replacement: path.resolve(process.cwd(), 'src') },
         ],
     },
     css: {

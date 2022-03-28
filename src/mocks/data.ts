@@ -182,7 +182,7 @@ const teachers = [
             middle: 'Онисимович',
             last: 'Храмов',
         },
-        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+        subjects: generateUniqSubjectsIds({ min: 1, max: 2 }),
     },
     {
         id: nanoid(),
@@ -200,7 +200,7 @@ const teachers = [
             middle: 'Брониславовна',
             last: 'Комягина',
         },
-        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+        subjects: generateUniqSubjectsIds({ min: 1, max: 2 }),
     },
     {
         id: nanoid(),
@@ -209,7 +209,7 @@ const teachers = [
             middle: 'Леонидовна',
             last: 'Овсова',
         },
-        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+        subjects: generateUniqSubjectsIds({ min: 1, max: 2 }),
     },
     {
         id: nanoid(),
@@ -227,7 +227,7 @@ const teachers = [
             middle: 'Елизаровна',
             last: 'Шилова',
         },
-        subjects: generateUniqSubjectsIds({ min: 1, max: 3 }),
+        subjects: generateUniqSubjectsIds({ min: 1, max: 2 }),
     },
 ]
 const appointments = generateAppointmentsList()
