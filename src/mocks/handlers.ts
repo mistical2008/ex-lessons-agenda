@@ -122,9 +122,8 @@ export const handlers = [
         return res(
             ctx.status(200),
             ctx.json({
-                teachers: teachersList.filter(
-                    (teacher) =>
-                        teacher.subjects.includes(Number(req.params.id)) || []
+                teachers: teachersList.filter((teacher) =>
+                    teacher.subjects.includes(Number(req.params.id))
                 ),
             })
         )
