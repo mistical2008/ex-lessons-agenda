@@ -1,6 +1,9 @@
-import { useQuery, SubjectIdParam, UseTeachersListOptions } from 'shared/api'
-
-import { api } from './api'
+import {
+    api,
+    useQuery,
+    SubjectIdParam,
+    UseTeachersListOptions,
+} from 'shared/api'
 
 // Фетчеры данных
 async function fetchTeachers() {
