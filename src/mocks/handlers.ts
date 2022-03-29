@@ -1,6 +1,6 @@
 import { rest } from 'msw'
 
-import { teachers } from './data'
+import { teachers } from './db.json'
 
 function isTeacherExists(teacherId: string) {
     return teachers.some((teacher) => teacher.id === teacherId)

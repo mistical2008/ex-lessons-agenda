@@ -1,0 +1,183 @@
+{
+  "teachers": [
+    {
+      "id": "asUFN_eS2fNYWtwgQKRLg",
+      "name": {
+        "first": "Кира",
+        "middle": "Давидовна",
+        "last": "Щепетинникова"
+      },
+      "subjects": [
+        3
+      ]
+    },
+    {
+      "id": "Iy55oasIZ6iCvndpIhqH9",
+      "name": {
+        "first": "Всеслава",
+        "middle": "Ипполитовна",
+        "last": "Должикова"
+      },
+      "subjects": [
+        5
+      ]
+    },
+    {
+      "id": "U0e1SI--y2slHH2AW9ylI",
+      "name": {
+        "first": "Иннокентий",
+        "middle": "Ипатиевич",
+        "last": "Яров"
+      },
+      "subjects": [
+        3
+      ]
+    },
+    {
+      "id": "K2xXIPswNT6pL8yMvEM7A",
+      "name": {
+        "first": "Эльвира",
+        "middle": "Владленовна",
+        "last": "Янкова"
+      },
+      "subjects": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "C5O8X9su9o2NEVQWXpTkV",
+      "name": {
+        "first": "Филимон",
+        "middle": "Дмитриевич",
+        "last": "Званцев"
+      },
+      "subjects": [
+        2
+      ]
+    },
+    {
+      "id": "0ePicZDM-T9lQa76opCZT",
+      "name": {
+        "first": "Эмиль",
+        "middle": "Онисимович",
+        "last": "Храмов"
+      },
+      "subjects": [
+        1
+      ]
+    },
+    {
+      "id": "ofS5zvPf7XUJH7yWpgqb9",
+      "name": {
+        "first": "Вячеслав",
+        "middle": "Артемиевич",
+        "last": "Воробьёв"
+      },
+      "subjects": [
+        5,
+        4
+      ]
+    },
+    {
+      "id": "Hvhnz8OOF7MCXutQtL8a7",
+      "name": {
+        "first": "Инесса",
+        "middle": "Брониславовна",
+        "last": "Комягина"
+      },
+      "subjects": [
+        2
+      ]
+    },
+    {
+      "id": "KncpPqx7iG9-btrsSDB5p",
+      "name": {
+        "first": "Зинаида",
+        "middle": "Леонидовна",
+        "last": "Овсова"
+      },
+      "subjects": [
+        2
+      ]
+    },
+    {
+      "id": "S6Lk5efV3lEGtpOV9ygJK",
+      "name": {
+        "first": "Пелагея",
+        "middle": "Романовна",
+        "last": "Юганцева"
+      },
+      "subjects": [
+        4,
+        5
+      ]
+    },
+    {
+      "id": "9yOul2miT-ax4Z45d5um3",
+      "name": {
+        "first": "Людмила",
+        "middle": "Елизаровна",
+        "last": "Шилова"
+      },
+      "subjects": [
+        3
+      ]
+    }
+  ],
+  "me": {
+    "id": "P2O1C5mbHGLENP7URqUu_",
+    "name": {
+      "first": "Иван",
+      "middle": "Иванович",
+      "last": "Иванов"
+    },
+    "email": "Kristy.@yandex.ru",
+    "phone": "+7 (228) 764-44-22"
+  },
+  "appointments": [
+    {
+      "id": "d6mpjxJDs-fLcCIxdwGMS",
+      "teacher": "Iy55oasIZ6iCvndpIhqH9",
+      "student": "P2O1C5mbHGLENP7URqUu_",
+      "subject": 3,
+      "createdAt": "2021-11-09T18:15:43.104Z"
+    },
+    {
+      "id": "_gJkFLgVf3UkPwIAmGbFT",
+      "teacher": "asUFN_eS2fNYWtwgQKRLg",
+      "student": "P2O1C5mbHGLENP7URqUu_",
+      "subject": 3,
+      "createdAt": "2021-11-08T10:19:54.959Z"
+    },
+    {
+      "id": "IxlIC6j3K9xGmCUo8Ygdj",
+      "teacher": "K2xXIPswNT6pL8yMvEM7A",
+      "student": "P2O1C5mbHGLENP7URqUu_",
+      "subject": 5,
+      "createdAt": "2021-04-08T22:25:40.455Z"
+    }
+  ],
+  "subjects": [
+    {
+      "id": 1,
+      "name": "Математика"
+    },
+    {
+      "id": 2,
+      "name": "Физика"
+    },
+    {
+      "id": 3,
+      "name": "Информатика"
+    },
+    {
+      "id": 4,
+      "name": "Русский язык"
+    },
+    {
+      "id": 5,
+      "name": "Литература"
+    }
+  ]
+}

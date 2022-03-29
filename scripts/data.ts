@@ -232,4 +232,4 @@ const teachers = [
 ]
 const appointments = generateAppointmentsList()
 
-export { teachers, me, appointments }
+export default { teachers, me, appointments, subjects }
