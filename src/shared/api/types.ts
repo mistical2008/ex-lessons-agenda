@@ -4,6 +4,12 @@ type QueryParam = string
 
 type CreatedAt = string
 
+type SubjectIdParam = NanoId | QueryParam
+
+type UseTeachersListOptions = {
+    subjectId?: SubjectIdParam
+}
+
 type SubjectName =
     | 'Математика'
     | 'Физика'
@@ -45,4 +51,13 @@ type Appointment = {
     createdAt: CreatedAt
 }
 
-export type { Appointment, Teacher, Student, Subject, QueryParam, NanoId }
+export type {
+    Appointment,
+    Teacher,
+    Student,
+    Subject,
+    QueryParam,
+    NanoId,
+    SubjectIdParam,
+    UseTeachersListOptions,
+}
