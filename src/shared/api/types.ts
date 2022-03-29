@@ -4,7 +4,9 @@ type QueryParam = string
 
 type CreatedAt = string
 
-type SubjectIdParam = NanoId | QueryParam
+type SubjectId = number
+
+type SubjectIdParam = NanoId | QueryParam | SubjectId
 
 type UseTeachersListOptions = {
     subjectId?: SubjectIdParam
@@ -18,7 +20,7 @@ type SubjectName =
     | 'Литература'
 
 type Subject = {
-    id: number
+    id: SubjectId
     name: SubjectName
 }
 
