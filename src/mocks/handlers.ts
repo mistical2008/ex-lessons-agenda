@@ -219,17 +219,7 @@ export const handlers = [
     /**
      * @description Создать событие
      */
-    rest.post('/api/appointments/:id', (req, res, ctx) => {
-        // Проверяем наличие события с таким id и если есть, то возвращаем ошибку
-        if (isItemExists(appointmentsList, req.params.id.toString())) {
-            return res(
-                ctx.status(409),
-                ctx.json({
-                    message: 'Событие с таким id уже существует',
-                })
-            )
-        }
-        // Если событие с таким id не существует, то создаем новое
+    rest.post('/api/appointments', (req, res, ctx) => {
         const newAppointment = {
             ...(req.body as Appointment),
             id: nanoid(),
