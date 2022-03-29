@@ -19,6 +19,7 @@
     "paths": {
       "~/*": [ "./*" ],
       "app/*": [ "./app/*" ],
+      "processes/*": [ "./processes/*" ],
       "pages/*": [ "./pages/*" ],
       "widgets/*": [ "./widgets/*" ],
       "features/*": [ "./features/*" ],
@@ -26,6 +27,6 @@
       "shared/*": [ "./shared/*" ]
     }
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" },{ "path": "./tsconfig.mock.json" } ]
+  "include": ["src", "scripts"],
+  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.scripts.json" } ]
 }

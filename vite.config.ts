@@ -14,47 +14,64 @@ const theme = {
     },
 }
 
-const globalVendorPackages = ['react', 'react-dom']
+const globalVendorPackages = ['react', 'react-dom', 'antd']
 
 // https://vitejs.dev/config/
-export default defineConfig({
-    test: {
-        globals: true,
-        environment: 'jsdom',
-        setupFiles: 'src/shared/setupTests.ts',
-    },
-    plugins: [react(), tsconfigPaths(), vitePluginImp()],
-    resolve: {
-        alias: [
-            {
-                find: /^~/,
-                replacement: path.resolve(process.cwd(), 'node_modules'),
-            },
-            { find: /^@\//, replacement: path.resolve(process.cwd()) },
-            { find: /^src/, replacement: path.resolve(process.cwd(), 'src') },
+export default defineConfig(({ command, mode }) => {
+    console.log({ command, mode })
+    return {
+        test: {
+            globals: true,
+            environment: 'jsdom',
+            setupFiles: 'src/shared/setupTests.ts',
+        },
+        plugins: [
+            react(),
+            tsconfigPaths(),
+            vitePluginImp({
+                libList: [
+                    {
+                        libName: 'antd',
+                        style: (name: string) => `antd/es/${name}/style`,
+                    },
+                ],
+            }),
         ],
-    },
-    css: {
-        modules: {
-            localsConvention: 'camelCaseOnly',
+        resolve: {
+            alias: [
+                {
+                    find: /^~/,
+                    replacement: path.resolve(process.cwd(), 'node_modules'),
+                },
+                { find: /^@\//, replacement: path.resolve(process.cwd()) },
+                // {
+                //     find: /^src/,
+                //     replacement: path.resolve(process.cwd(), 'src'),
+                // },
+            ],
         },
-        preprocessorOptions: {
-            less: {
-                javascriptEnabled: true,
-                modifyVars: {
-                    '@primary-color': theme.color.primary,
-                    '@link-color': theme.color.primary,
+        css: {
+            modules: {
+                localsConvention: 'camelCaseOnly',
+            },
+            preprocessorOptions: {
+                less: {
+                    javascriptEnabled: true,
+                    modifyVars: {
+                        '@primary-color': theme.color.primary,
+                        '@link-color': theme.color.primary,
+                    },
                 },
             },
         },
-    },
-    build: {
-        rollupOptions: {
-            output: {
-                manualChunks: {
-                    vendor: globalVendorPackages,
+        build: {
+            rollupOptions: {
+                output: {
+                    manualChunks: {
+                        vendor: globalVendorPackages,
+                    },
                 },
             },
         },
-    },
+    }
 })

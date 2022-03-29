@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": false,
+        "types": ["node"],
+        "rootDir": ["scripts"]
+    },
+    "include": ["scripts", "src/shared/api/types.ts"]
+}
