@@ -1,53 +1,9 @@
 import { faker } from '@faker-js/faker'
 import { nanoid } from 'nanoid'
 
+import { Subject, Appointment, Student, Teacher } from '../src/shared/api'
+
 faker.locale = 'ru'
-
-/**
- * Data types
- */
-type NanoId = string
-
-type SubjectName =
-    | 'Математика'
-    | 'Физика'
-    | 'Информатика'
-    | 'Русский язык'
-    | 'Литература'
-
-type Subject = {
-    id: number
-    name: SubjectName
-}
-
-type Teacher = {
-    id: NanoId
-    name: {
-        first: string
-        last: string
-        middle: string
-    }
-    subjects: Subject['id'][]
-}
-
-type Student = {
-    id: NanoId
-    name: {
-        first: string
-        last: string
-        middle: string
-    }
-    email: string
-    phone: string
-}
-
-type Appointment = {
-    id: NanoId
-    teacher: Teacher['id']
-    student: Student['id']
-    subject: Subject['id']
-    createdAt: Date
-}
 
 const subjects: Subject[] = [
     {
@@ -118,7 +74,7 @@ function generateAppointmentsList(): Appointment[] {
     return Array.from({ length: 3 }, () => generateAppointment())
 }
 
-const me = {
+const me: Student = {
     id: nanoid(),
     name: {
         first: 'Иван',
@@ -129,7 +85,7 @@ const me = {
     phone: faker.phone.phoneNumber('+7 (###) ###-##-##'),
 }
 
-const teachers = [
+const teachers: Teacher = [
     {
         id: nanoid(),
         name: {
