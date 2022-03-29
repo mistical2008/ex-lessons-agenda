@@ -42,7 +42,7 @@ export const handlers = [
                 ctx.json({
                     error: {
                         message: 'Учитель не найден',
-                    }
+                    },
                 })
             )
         }
@@ -89,7 +89,7 @@ export const handlers = [
                 ctx.json({
                     error: {
                         message: `Предмет не найден`,
-                    }
+                    },
                 })
             )
         }
@@ -114,7 +114,7 @@ export const handlers = [
                 ctx.json({
                     error: {
                         message: `Предмет по которому требуется искать не существует в базе`,
-                    }
+                    },
                 })
             )
         }
@@ -152,7 +152,7 @@ export const handlers = [
                 ctx.json({
                     error: {
                         message: 'Событие не найдено',
-                    }
+                    },
                 })
             )
         }
@@ -206,13 +206,13 @@ export const handlers = [
         return res(
             ctx.status(200),
             ctx.json({
-            success: {
-                message: 'Событие успешно обновлено',
-                appointments: {
-                    ...oldAppointment,
-                    ...(req.body as Appointment),
+                success: {
+                    message: 'Событие успешно обновлено',
+                    appointments: {
+                        ...oldAppointment,
+                        ...(req.body as Appointment),
+                    },
                 },
-            }
             })
         )
     }),
@@ -230,13 +230,13 @@ export const handlers = [
                 })
             )
         }
-            // Если событие с таким id не существует, то создаем новое
-            const newAppointment = {
-                ...(req.body as Appointment),
-                id: nanoid(),
-            }
-            // И добавляем его в список
-            appointmentsList.push(newAppointment)
+        // Если событие с таким id не существует, то создаем новое
+        const newAppointment = {
+            ...(req.body as Appointment),
+            id: nanoid(),
+        }
+        // И добавляем его в список
+        appointmentsList.push(newAppointment)
 
         return res(
             ctx.status(200),
@@ -258,7 +258,7 @@ export const handlers = [
                 ctx.json({
                     error: {
                         message: 'Ошибка удаления. Событие не найдено',
-                    }
+                    },
                 })
             )
         }
@@ -272,7 +272,8 @@ export const handlers = [
             ctx.json({
                 success: {
                     message: 'Событие успешно удалено',
-                }
+                },
             })
         )
+    }),
 ]
