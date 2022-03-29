@@ -1,5 +1,5 @@
-import { writeFile } from 'fs'
-import { resolve } from 'path'
+import * as fs from 'fs'
+import * as path from 'path'
 
 import data from './data'
 
@@ -8,7 +8,7 @@ const mockDb = {
 }
 
 function writeToFile(fileName: string, data: string) {
-    writeFile(fileName, data, (err) => {
+    fs.writeFile(fileName, data, (err) => {
         if (err) {
             console.log(err)
         }
@@ -26,7 +26,7 @@ function printArray(items: any[]) {
 }
 
 function main() {
-    const filePath = resolve(process.cwd(), 'src', 'mocks', 'db.json')
+    const filePath = path.resolve(process.cwd(), 'src', 'mocks', 'db.json')
     const data = stringifyObject(mockDb)
     writeToFile(filePath, data)
     printArray(Object.values(mockDb))

@@ -5,8 +5,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import vitePluginImp from 'vite-plugin-imp'
-/* @ts-ignore */
-import path from 'path'
 
 const theme = {
     color: {
@@ -37,19 +35,6 @@ export default defineConfig(({ command, mode }) => {
                 ],
             }),
         ],
-        resolve: {
-            alias: [
-                {
-                    find: /^~/,
-                    replacement: path.resolve(process.cwd(), 'node_modules'),
-                },
-                { find: /^@\//, replacement: path.resolve(process.cwd()) },
-                // {
-                //     find: /^src/,
-                //     replacement: path.resolve(process.cwd(), 'src'),
-                // },
-            ],
-        },
         css: {
             modules: {
                 localsConvention: 'camelCaseOnly',

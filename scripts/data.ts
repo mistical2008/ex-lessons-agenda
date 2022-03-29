@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 import { nanoid } from 'nanoid'
 
-import { Subject, Appointment, Student, Teacher } from '../src/shared/api'
+import { Subject, Appointment, Student, Teacher } from 'src/shared/api'
 
 faker.locale = 'ru'
 

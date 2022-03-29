@@ -17,7 +17,9 @@
     "jsx": "react-jsx",
     "baseUrl": "./src",
     "paths": {
-      "~/*": [ "./*" ],
+      "~*": [ "./*" ],
+      "src/*": [ "../src/*" ],
+      "@/*": [ "../node_modules/*" ],
       "app/*": [ "./app/*" ],
       "processes/*": [ "./processes/*" ],
       "pages/*": [ "./pages/*" ],
@@ -28,5 +30,5 @@
     }
   },
   "include": ["src", "scripts"],
-  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.scripts.json" } ]
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
